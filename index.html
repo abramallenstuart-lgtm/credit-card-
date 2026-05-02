@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Personalized credit card recommendations tailored to your spending habits, financial goals, and existing card portfolio. Strategies for couples, Chase Trifecta, Amex Trifecta, and more.">
+  <title>CardOptimizer — Maximize Your Credit Card Rewards</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+  <!-- ── HEADER ────────────────────────────────────────────── -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <div class="site-logo">
+        <span class="logo-icon">💳</span>
+        <span>CardOptimizer</span>
+      </div>
+      <span class="header-tagline">Maximize your rewards strategy</span>
+    </div>
+  </header>
+
+  <!-- ── PROGRESS BAR (hidden on landing + results) ─────────── -->
+  <div class="progress-wrap" id="progress-wrap" style="display:none;">
+    <div class="container">
+      <div class="progress-steps">
+        <div class="progress-step pending" id="ps-1">1. Goals</div>
+        <div class="progress-step pending" id="ps-2">2. Spending</div>
+        <div class="progress-step pending" id="ps-3">3. My Cards</div>
+        <div class="progress-step pending" id="ps-4">4. Partner</div>
+      </div>
+      <div class="progress-bar-track">
+        <div id="progress-bar-fill"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════════════════════════
+       SECTION 0 — LANDING
+       ══════════════════════════════════════════════════════════ -->
+  <section class="page-section active" id="section-0">
+    <div class="container">
+      <p class="hero-eyebrow">✨ Rewards Optimization Engine</p>
+      <h1 class="hero-title">Maximize Your<br><span>Credit Card Rewards</span></h1>
+      <p class="hero-subtitle">
+        Get a personalized strategy tailored to your spending habits, goals, and current card portfolio — 
+        including long-term roadmaps, couple strategies, and multi-bank optimization.
+      </p>
+
+      <div class="features-grid">
+        <div class="feature-item">
+          <span class="feature-icon">🎯</span>
+          <div class="feature-text">
+            <strong>Tailored Recommendations</strong>
+            <p>Cards ranked by estimated annual value based on your actual spending.</p>
+          </div>
+        </div>
+        <div class="feature-item">
+          <span class="feature-icon">🛡</span>
+          <div class="feature-text">
+            <strong>Application Rule Awareness</strong>
+            <p>Accounts for Chase 5/24, Sapphire family restrictions, Amex lifetime rules, and more.</p>
+          </div>
+        </div>
+        <div class="feature-item">
+          <span class="feature-icon">👫</span>
+          <div class="feature-text">
+            <strong>Couple Strategies</strong>
+            <p>Coordinate applications across two people to maximize bonuses and points.</p>
+          </div>
+        </div>
+        <div class="feature-item">
+          <span class="feature-icon">🗺</span>
+          <div class="feature-text">
+            <strong>Long-Term Roadmaps</strong>
+            <p>Chase Trifecta, Amex Trifecta, Capital One Duo, and hybrid multi-bank strategies.</p>
+          </div>
+        </div>
+        <div class="feature-item">
+          <span class="feature-icon">🏦</span>
+          <div class="feature-text">
+            <strong>Multi-Bank Optimization</strong>
+            <p>Combine Amex, Chase, and Capital One cards for maximum rewards stacking.</p>
+          </div>
+        </div>
+        <div class="feature-item">
+          <span class="feature-icon">⚡</span>
+          <div class="feature-text">
+            <strong>Current Card Tips</strong>
+            <p>Learn how to better route spending across cards you already hold.</p>
+          </div>
+        </div>
+      </div>
+
+      <div style="text-align:center;">
+        <button class="btn btn-primary btn-lg" id="btn-start">
+          Start Optimization →
+        </button>
+        <p class="scroll-hint">Takes about 2 minutes</p>
+      </div>
+
+      <div class="disclaimer" style="max-width:680px;margin:40px auto 0;">
+        <strong>Disclaimer:</strong> CardOptimizer provides educational recommendations only. 
+        Card terms, bonuses, and rates change frequently. Verify current offers directly with issuers 
+        before applying. This tool does not check your credit score or guarantee approval.
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════════════════
+       SECTION 1 — GOALS & PROFILE
+       ══════════════════════════════════════════════════════════ -->
+  <section class="page-section" id="section-1">
+    <div class="container">
+      <div class="form-card">
+        <div class="step-header">
+          <p class="step-number">Step 1 of 4</p>
+          <h2 class="step-title">Your Goals & Profile</h2>
+          <p class="step-subtitle">Tell us what you're optimizing for. This shapes every recommendation.</p>
+        </div>
+
+        <!-- Primary Goal -->
+        <h3 style="margin-bottom:12px;">What is your primary rewards goal?</h3>
+        <div class="goal-grid">
+          <button class="goal-btn" data-goal="travel">
+            <span class="goal-icon">✈️</span>
+            <strong>Travel Rewards</strong>
+            <span>Maximize points & miles for flights, hotels, and experiences.</span>
+          </button>
+          <button class="goal-btn" data-goal="cashback">
+            <span class="goal-icon">💵</span>
+            <strong>Cash Back</strong>
+            <span>Simple, straightforward cash back on everyday purchases.</span>
+          </button>
+          <button class="goal-btn" data-goal="flexibility">
+            <span class="goal-icon">⚖️</span>
+            <strong>Flexibility</strong>
+            <span>Transferable points that can be used for travel or cash.</span>
+          </button>
+        </div>
+
+        <!-- Experience Level -->
+        <h3 style="margin: 24px 0 12px;">What is your experience level?</h3>
+        <div class="exp-grid">
+          <button class="exp-btn" data-level="beginner">
+            <span class="exp-icon">🌱</span>
+            <strong>Beginner</strong>
+            <span>I have 1–2 cards and want simple, low-maintenance recommendations.</span>
+          </button>
+          <button class="exp-btn" data-level="intermediate">
+            <span class="exp-icon">🚀</span>
+            <strong>Intermediate</strong>
+            <span>I actively manage a few cards and understand transfer partners.</span>
+          </button>
+          <button class="exp-btn" data-level="advanced">
+            <span class="exp-icon">🔬</span>
+            <strong>Advanced</strong>
+            <span>I want complex multi-card strategies and maximum optimization.</span>
+          </button>
+        </div>
+
+        <!-- Couple Mode -->
+        <h3 style="margin: 24px 0 12px;">Are you optimizing as a couple?</h3>
+        <label class="couple-toggle-row">
+          <div class="toggle-switch">
+            <input type="checkbox" id="couple-toggle">
+            <span class="slider-toggle"></span>
+          </div>
+          <div>
+            <strong>Yes, include my partner's cards</strong>
+            <p style="font-size:0.85rem;color:var(--text-muted);margin-top:2px;">Unlocks couple strategies and coordinated application planning.</p>
+          </div>
+        </label>
+        <div id="couple-hint">
+          💡 <strong>Couple mode:</strong> You'll enter your partner's existing cards in Step 4. 
+          We'll suggest strategies for maximizing points across two people, including shared Chase household transfer tips.
+        </div>
+
+        <p class="error-msg" id="step1-error"></p>
+
+        <div class="nav-row" style="justify-content:flex-end;">
+          <button class="btn btn-primary" id="step1-next">Next: Monthly Spending →</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════════════════
+       SECTION 2 — SPENDING
+       ══════════════════════════════════════════════════════════ -->
+  <section class="page-section" id="section-2">
+    <div class="container">
+      <div class="form-card">
+        <div class="step-header">
+          <p class="step-number">Step 2 of 4</p>
+          <h2 class="step-title">Your Monthly Spending</h2>
+          <p class="step-subtitle">
+            Drag the sliders or type amounts. We use this to calculate which cards earn the most value for you.
+            Enter <em>combined</em> household spending if in couple mode.
+          </p>
+        </div>
+
+        <div class="spending-grid">
+          <!-- Dining -->
+          <div class="spend-row">
+            <label for="spend-dining">🍽 Dining & Restaurants</label>
+            <div class="spend-input-wrap">
+              <input type="range" id="spend-dining" class="spend-input" data-category="dining"
+                min="0" max="2000" step="25" value="0">
+              <span class="spend-display" id="display-dining">$0</span>
+            </div>
+          </div>
+          <!-- Groceries -->
+          <div class="spend-row">
+            <label for="spend-groceries">🛒 Groceries & Supermarkets</label>
+            <div class="spend-input-wrap">
+              <input type="range" id="spend-groceries" class="spend-input" data-category="groceries"
+                min="0" max="2000" step="25" value="0">
+              <span class="spend-display" id="display-groceries">$0</span>
+            </div>
+          </div>
+          <!-- Gas -->
+          <div class="spend-row">
+            <label for="spend-gas">⛽ Gas & Transportation</label>
+            <div class="spend-input-wrap">
+              <input type="range" id="spend-gas" class="spend-input" data-category="gas"
+                min="0" max="1000" step="10" value="0">
+              <span class="spend-display" id="display-gas">$0</span>
+            </div>
+          </div>
+          <!-- Travel -->
+          <div class="spend-row">
+            <label for="spend-travel">✈ Travel (flights, hotels)</label>
+            <div class="spend-input-wrap">
+              <input type="range" id="spend-travel" class="spend-input" data-category="travel"
+                min="0" max="3000" step="50" value="0">
+              <span class="spend-display" id="display-travel">$0</span>
+            </div>
+          </div>
+          <!-- Online Shopping -->
+          <div class="spend-row">
+            <label for="spend-onlineShopping">🛍 Online Shopping</label>
+            <div class="spend-input-wrap">
+              <input type="range" id="spend-onlineShopping" class="spend-input" data-category="onlineShopping"
+                min="0" max="2000" step="25" value="0">
+              <span class="spend-display" id="display-onlineShopping">$0</span>
+            </div>
+          </div>
+          <!-- Entertainment -->
+          <div class="spend-row">
+            <label for="spend-entertainment">🎭 Entertainment</label>
+            <div class="spend-input-wrap">
+              <input type="range" id="spend-entertainment" class="spend-input" data-category="entertainment"
+                min="0" max="1000" step="10" value="0">
+              <span class="spend-display" id="display-entertainment">$0</span>
+            </div>
+          </div>
+          <!-- Streaming -->
+          <div class="spend-row">
+            <label for="spend-streaming">📺 Streaming Services</label>
+            <div class="spend-input-wrap">
+              <input type="range" id="spend-streaming" class="spend-input" data-category="streaming"
+                min="0" max="200" step="5" value="0">
+              <span class="spend-display" id="display-streaming">$0</span>
+            </div>
+          </div>
+          <!-- Everything Else -->
+          <div class="spend-row">
+            <label for="spend-everything">💳 Total Monthly Spending (all categories)</label>
+            <div class="spend-input-wrap">
+              <input type="range" id="spend-everything" class="spend-input" data-category="everything"
+                min="0" max="10000" step="100" value="0">
+              <span class="spend-display" id="display-everything">$0</span>
+            </div>
+          </div>
+        </div>
+
+        <p style="font-size:0.82rem;color:var(--text-muted);margin-top:8px;">
+          💡 Tip: Set "Total Monthly Spending" to your full monthly card spending. 
+          The engine uses specific categories for bonus earn rates, and the remainder earns the base rate.
+        </p>
+
+        <p class="error-msg" id="step2-error"></p>
+
+        <div class="nav-row">
+          <button class="btn btn-outline" id="step2-back">← Back</button>
+          <button class="btn btn-primary" id="step2-next">Next: My Current Cards →</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════════════════
+       SECTION 3 — CURRENT CARDS
+       ══════════════════════════════════════════════════════════ -->
+  <section class="page-section" id="section-3">
+    <div class="container">
+      <div class="form-card">
+        <div class="step-header">
+          <p class="step-number">Step 3 of 4</p>
+          <h2 class="step-title">Your Current Cards</h2>
+          <p class="step-subtitle">
+            Select all credit cards you currently hold. After selecting, you'll be asked when you opened each one — 
+            this helps us calculate your Chase 5/24 status and other application restrictions.
+          </p>
+        </div>
+
+        <div id="card-select" class="card-select-container">
+          <!-- Populated by JS -->
+        </div>
+
+        <div id="card-dates">
+          <!-- Date fields appear here when cards are checked -->
+        </div>
+
+        <p class="error-msg" id="step3-error"></p>
+
+        <div class="nav-row">
+          <button class="btn btn-outline" id="step3-back">← Back</button>
+          <button class="btn btn-primary" id="step3-next">
+            Get My Recommendations →
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════════════════
+       SECTION 4 — PARTNER'S CARDS (couple mode)
+       ══════════════════════════════════════════════════════════ -->
+  <section class="page-section" id="section-4">
+    <div class="container">
+      <div class="form-card">
+        <div class="step-header">
+          <p class="step-number">Step 4 of 4</p>
+          <h2 class="step-title">Your Partner's Cards</h2>
+          <p class="step-subtitle">
+            Select all credit cards your partner currently holds and when they were opened. 
+            This helps us calculate their 5/24 status separately and suggest optimal division of applications.
+          </p>
+        </div>
+
+        <div id="partner-card-select" class="card-select-container">
+          <!-- Populated by JS -->
+        </div>
+
+        <div id="partner-card-dates">
+          <!-- Date fields appear here when cards are checked -->
+        </div>
+
+        <div class="nav-row">
+          <button class="btn btn-outline" id="step4-back">← Back</button>
+          <button class="btn btn-primary" id="step4-next">Get Our Recommendations →</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════════════════
+       SECTION 5 — RESULTS
+       ══════════════════════════════════════════════════════════ -->
+  <section class="page-section" id="section-5">
+    <div class="container">
+
+      <div class="results-header">
+        <h2>Your Personalized Strategy</h2>
+        <p>Recommendations are ranked by estimated annual net value for your spending profile.</p>
+      </div>
+
+      <!-- 5/24 Status -->
+      <div class="status-524-card">
+        <h3 style="margin-bottom:12px;">📊 Chase 5/24 Status</h3>
+        <div id="status-524"></div>
+      </div>
+
+      <!-- Top Card Recommendations -->
+      <div class="results-block">
+        <h3 class="results-section-title">🏆 Recommended Cards For You</h3>
+        <div id="recommendations-list">
+          <!-- Populated by JS -->
+        </div>
+      </div>
+
+      <!-- Current Card Optimization Tips -->
+      <div class="results-block" id="tips-block">
+        <h3 class="results-section-title">⚡ Optimize Your Current Cards</h3>
+        <div id="tips-list">
+          <!-- Populated by JS -->
+        </div>
+      </div>
+
+      <!-- Strategies -->
+      <div class="results-block">
+        <h3 class="results-section-title">🗺 Recommended Strategies & Roadmaps</h3>
+        <div id="strategies-list">
+          <!-- Populated by JS -->
+        </div>
+      </div>
+
+      <!-- Couple Section -->
+      <div id="section-couple-results" style="display:none;">
+        <h3 class="results-section-title">👫 Partner's Top Card Picks</h3>
+        <div id="couple-recs-list"></div>
+
+        <h3 class="results-section-title" style="margin-top:32px;">💑 Couple Strategies</h3>
+        <div id="couple-strats-list"></div>
+      </div>
+
+      <!-- Disclaimer -->
+      <div class="disclaimer">
+        <strong>Note:</strong> Annual values are estimates based on your spending inputs and published point valuations 
+        (Chase UR @ 1.8¢, Amex MR @ 1.8¢, Capital One Miles @ 1.5¢, Citi TYP @ 1.6¢). 
+        Actual value depends on how you redeem your points. Card terms, sign-up bonuses, and annual fees change frequently — 
+        always verify with the issuer before applying. This tool does not perform a credit check.
+      </div>
+
+      <!-- Start Over -->
+      <div style="text-align:center;margin-top:40px;">
+        <button class="btn btn-outline" id="btn-restart">← Start Over</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── FOOTER ─────────────────────────────────────────────── -->
+  <footer class="site-footer">
+    <p>
+      CardOptimizer · Educational tool only · Not financial advice ·
+      Card data subject to change — verify with issuers before applying.
+    </p>
+  </footer>
+
+  <!-- ── SCRIPTS ─────────────────────────────────────────────── -->
+  <script src="js/cards-data.js"></script>
+  <script src="js/strategies-data.js"></script>
+  <script src="js/recommendation-engine.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
